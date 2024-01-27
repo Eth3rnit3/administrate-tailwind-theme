@@ -1,0 +1,23 @@
+<%#
+# Password Form Partial
+
+This partial renders an input element for a password attribute.
+By default, the input is a password field.
+
+## Local variables:
+
+- `f`:
+  A Rails form generator, used to help create the appropriate input fields.
+- `field`:
+  An instance of [Administrate::Field::Password][1].
+  A wrapper around the Password.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Password
+%>
+
+<div class="mb-4">
+  <%= f.label field.attribute, class: "block text-sm font-medium text-gray-700" %>
+  <div class="mt-1">
+    <%= f.password_field field.attribute, value: field.data, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+  </div>
+</div>

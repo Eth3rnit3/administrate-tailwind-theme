@@ -1,0 +1,35 @@
+<%#
+# Flash Partial
+
+This partial renders flash messages on every page.
+
+## Relevant Helpers:
+
+- `flash`:
+  Returns a hash,
+  where the keys are the type of flash (alert, error, notice, etc)
+  and the values are the message to be displayed.
+%>
+
+<% if flash.any? %>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <% flash.each do |key, value| -%>
+      <% next unless value.respond_to?(:html_safe) %>
+      <div class="flash bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mb-4" role="alert">
+        <div class="flex">
+          <div class="py-1">
+            <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M0 0h20v20H0z" fill="none"/>
+              <path d="M9 12h2v2H9v-2zm1-8c-1.104 0-2 .896-2 2v5h4V6c0-1.104-.896-2-2-2zm0-3C4.486 1 1 4.486 1 9h2c0-3.314 2.686-6 6-6s6 2.686 6 6h2c0-4.514-3.486-8-8-8z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold"><%= key.to_s.humanize %></p>
+            <p class="text-sm"><%= value.html_safe %></p>
+          </div>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+<% end %>
+

@@ -1,0 +1,48 @@
+<%#
+# HasOne Show Partial
+
+This partial renders a has_one relationship,
+to be displayed on a resource's show page.
+
+All show page attributes of has_one relationship would be rendered
+
+## Local variables:
+
+- `field`:
+  An instance of [Administrate::Field::HasOne][1].
+  A wrapper around the has_one relationship pulled from the database.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/HasOne
+%>
+
+<% if field.linkable? %>
+  <fieldset class="bg-gray-50 p-3 rounded-md shadow-sm">
+    <legend>
+      <%= link_to_if(
+        accessible_action?(field.data, :show),
+        field.display_associated_resource,
+        [namespace, field.data],
+      ) %>
+    </legend>
+    <% field.nested_show.attributes.each do |title, attributes| -%>
+      <fieldset class="<%= "bg-white p-3 rounded-md shadow-sm" if title.present? %>">
+        <% if title.present? %>
+          <legend class="text-gray-800 font-semibold"><%= t "helpers.label.#{namespace}.#{title}", default: title %></legend>
+        <% end %>
+
+        <% attributes.each do |attribute| %>
+          <dt class="text-sm font-medium text-gray-500">
+            <%= t(
+              "helpers.label.#{field.associated_class_name.underscore}.#{attribute.name}",
+              default: attribute.name.titleize,
+            ) %>
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900">
+            <%= render_field attribute, { page: page } %>
+          </dd>
+        <% end %>
+      </fieldset>
+    <% end -%>
+  </fieldset>
+<% end %>
+

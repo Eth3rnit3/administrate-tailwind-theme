@@ -1,0 +1,71 @@
+<%#
+# Show
+
+This view is the template for the show page.
+It renders the attributes of a resource,
+as well as a link to its edit page.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Show][1].
+  Contains methods for accessing the resource to be displayed on the page,
+  as well as helpers for describing how each attribute of the resource
+  should be displayed.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
+%>
+
+<% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
+
+<header class="bg-white shadow">
+  <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl font-bold leading-tight text-gray-900">
+        <%= content_for(:title) %>
+      </h1>
+
+      <div class="flex space-x-2">
+        <%= link_to(
+          t("administrate.actions.edit_resource", name: page.page_title),
+          [:edit, namespace, page.resource],
+          class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        ) if accessible_action?(page.resource, :edit) %>
+
+        <%= link_to(
+          t("administrate.actions.destroy"),
+          [namespace, page.resource],
+          method: :delete,
+          data: { confirm: t("administrate.actions.confirm") },
+          class: "text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        ) if accessible_action?(page.resource, :destroy) %>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white shadow overflow-hidden rounded-lg p-6">
+    <dl>
+      <% page.attributes.each do |title, attributes| %>
+        <fieldset class="<%= 'p-4 border-t border-gray-200' if title.present? %>">
+          <% if title.present? %>
+            <legend class="text-lg font-medium text-gray-900"><%= t "helpers.label.#{page.resource_name}.#{title}", default: title %></legend>
+          <% end %>
+
+          <% attributes.each do |attribute| %>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <dt class="text-sm font-medium text-gray-500" id="<%= attribute.name %>">
+                <%= t(
+                  "helpers.label.#{resource_name}.#{attribute.name}",
+                  default: page.resource.class.human_attribute_name(attribute.name),
+                ) %>
+              </dt>
+              <dd class="mt-1 text-sm text-gray-900 md:col-span-2"><%= render_field attribute, page: page %></dd>
+            </div>
+          <% end %>
+        </fieldset>
+      <% end %>
+    </dl>
+  </div>
+</section>

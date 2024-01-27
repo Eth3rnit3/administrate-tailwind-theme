@@ -1,0 +1,28 @@
+<% content_for(:title) { display_resource_name(page.resource_name) } %>
+
+<header class="bg-white shadow">
+  <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold leading-tight text-gray-900" id="page-title">
+      <%= content_for(:title) %>
+    </h1>
+
+    <% if show_search_bar %>
+      <%= render(
+        "search",
+        search_term: search_term,
+        resource_name: display_resource_name(page.resource_name)
+      ) %>
+    <% end %>
+
+    <div class="mt-4">
+      <%= link_to(
+        t(
+          "administrate.actions.new_resource",
+          name: display_resource_name(page.resource_name, singular: true).downcase
+        ),
+        [:new, namespace, page.resource_path.to_sym],
+        class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      ) if accessible_action?(new_resource, :new) %>
+    </div>
+  </div>
+</header>

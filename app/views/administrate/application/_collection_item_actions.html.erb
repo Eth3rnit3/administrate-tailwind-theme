@@ -1,0 +1,22 @@
+<% if existing_action?(collection_presenter.resource_name, :edit) %>
+  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+    <%= link_to(
+      t("administrate.actions.edit"),
+      [:edit, namespace, resource],
+      class: "text-indigo-600 hover:text-indigo-900",
+    ) if accessible_action?(resource, :edit) %>
+  </td>
+<% end %>
+
+<% if existing_action?(collection_presenter.resource_name, :destroy) %>
+  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+    <%= link_to(
+      t("administrate.actions.destroy"),
+      [namespace, resource],
+      method: :delete,
+      data: { confirm: t("administrate.actions.confirm") },
+      class: "text-red-600 hover:text-red-900",
+    ) if accessible_action?(resource, :destroy) %>
+  </td>
+<% end %>
+

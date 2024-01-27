@@ -1,0 +1,10 @@
+Description:
+    AdministrateTailwindTheme installer
+
+Example:
+    bin/rails generate administrate_tailwind_theme:install
+
+    This will:
+        - create a new initializer: administrate_tailwind_theme
+        - create a new SCSS stylesheet: administrate-tailwind-theme.scss
+        - append the necessary assets to: config/initializers/assets.rb

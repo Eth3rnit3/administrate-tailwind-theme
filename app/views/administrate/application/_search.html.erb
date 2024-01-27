@@ -1,0 +1,21 @@
+<form class="relative" role="search">
+  <label for="search" class="sr-only">
+    <%= t("administrate.search.label", resource: resource_name) %>
+  </label>
+
+  <div class="flex items-center border border-gray-300 rounded-md shadow-sm">
+    <div class="pl-3">
+      <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10H2a2 2 0 00-2 2v6a2 2 0 002 2h6m10-12h6a2 2 0 012 2v6a2 2 0 01-2 2h-6m-6 0H2a2 2 0 01-2-2v-6a2 2 0 012-2h6m10 0h6"/>
+      </svg>
+    </div>
+    <input id="search" class="block w-full pl-10 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="<%= t("administrate.search.label", resource: resource_name) %>" type="search" name="search" value="<%= search_term %>">
+    <% if search_term.present? %>
+      <%= link_to clear_search_params, class: "absolute inset-y-0 right-0 pr-3 flex items-center" do %>
+        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      <% end %>
+    <% end %>
+  </div>
+</form>

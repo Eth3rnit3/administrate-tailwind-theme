@@ -1,0 +1,58 @@
+<%#
+# Form Partial
+
+This partial is rendered on a resource's `new` and `edit` pages,
+and renders all form fields for a resource's editable attributes.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Form][1].
+  Contains helper methods to display a form,
+  and knows which attributes should be displayed in the resource's form.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
+%>
+
+<%= form_for([namespace, page.resource], html: { class: "max-w-lg mx-auto py-6 px-4 sm:px-6 lg:px-8" }) do |f| %>
+  <% if page.resource.errors.any? %>
+    <div id="error_explanation" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+      <h2 class="font-bold">
+        <%= t(
+          "administrate.form.errors",
+          pluralized_errors: pluralize(page.resource.errors.count, t("administrate.form.error")),
+          resource_name: display_resource_name(page.resource_name, singular: true)
+        ) %>
+      </h2>
+
+      <ul class="list-disc pl-6">
+        <% page.resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% page.attributes(controller.action_name).each do |title, attributes| -%>
+    <fieldset class="mb-6">
+      <% if title.present? %>
+        <legend class="text-lg font-medium text-gray-900"><%= t "helpers.label.#{f.object_name}.#{title}", default: title %></legend>
+      <% end %>
+
+      <% attributes.each do |attribute| %>
+        <div class="mb-4">
+          <%= render_field attribute, f: f %>
+
+          <% hint_key = "administrate.field_hints.#{page.resource_name}.#{attribute.name}" %>
+          <% if I18n.exists?(hint_key) -%>
+            <p class="text-sm text-gray-600 mt-2"><%= I18n.t(hint_key) %></p>
+          <% end -%>
+        </div>
+      <% end %>
+    </fieldset>
+  <% end -%>
+
+  <div class="flex justify-end">
+  <%= f.submit class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 cursor-pointer" %>
+</div>
+<% end %>

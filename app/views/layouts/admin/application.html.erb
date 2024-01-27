@@ -1,0 +1,41 @@
+<%#
+# Application Layout
+
+This view template is used as the layout
+for every page that Administrate generates.
+
+By default, it renders:
+- Navigation
+- Content for a search bar
+  (if provided by a `content_for` block in a nested page)
+- Flashes
+- Links to stylesheets and JavaScripts
+%>
+
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= content_for(:title) || "Administrate" %> - <%= application_title %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'tailwind', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag 'administrate-tailwind-theme', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'administrate-tailwind-theme', 'data-turbo-track': 'reload', defer: true %>
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex">
+    <%= render "navigation" %>
+    <!-- Main Content -->
+    <div class="flex-grow">
+      <%= render "flashes" %>
+      <main class="container mx-auto px-6 py-8">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
+  <%= render "javascript" %>
+</body>
+</html>

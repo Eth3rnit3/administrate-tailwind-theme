@@ -1,0 +1,22 @@
+<%#
+# Text Form Partial
+
+This partial renders a textarea element for a text attribute.
+
+## Local variables:
+
+- `f`:
+  A Rails form generator, used to help create the appropriate input fields.
+- `field`:
+  An instance of [Administrate::Field::Text][1].
+  A wrapper around the Text pulled from the database.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Text
+%>
+
+<div class="mb-4">
+  <%= f.label field.attribute, class: "block text-sm font-medium text-gray-700" %>
+  <div class="mt-1">
+    <%= f.text_area field.attribute, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+  </div>
+</div>

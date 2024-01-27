@@ -1,0 +1,42 @@
+<%#
+# Edit
+
+This view is the template for the edit page.
+
+It displays a header, and renders the `_form` partial to do the heavy lifting.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Form][1].
+  Contains helper methods to help display a form,
+  and knows which attributes should be displayed in the resource's form.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
+%>
+
+<% content_for(:title) { t("administrate.actions.edit_resource", name: page.page_title) } %>
+
+<header class="bg-white shadow">
+  <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl font-bold leading-tight text-gray-900">
+        <%= content_for(:title) %>
+      </h1>
+
+      <div>
+        <%= link_to(
+          t("administrate.actions.show_resource", name: page.page_title),
+          [namespace, page.resource],
+          class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        ) if accessible_action?(page.resource, :show) %>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white shadow overflow-hidden rounded-lg">
+    <%= render "form", page: page %>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<%#
+# Boolean Show Partial
+
+This partial renders a boolean attribute,
+to be displayed on a resource's show page.
+
+By default, the attribute is rendered
+as a string representation of the boolean value.
+
+## Local variables:
+
+- `field`:
+  An instance of [Administrate::Field::Boolean][1].
+  A wrapper around the boolean value pulled from the database.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Boolean
+%>
+
+<% boolean_value = field.data ? 'Yes' : 'No' %>
+<div class="bg-gray-50 p-3 rounded-md shadow-sm">
+  <span class="<%= field.data ? 'text-green-600' : 'text-red-600' %> font-medium">
+    <%= boolean_value %>
+  </span>
+</div>
