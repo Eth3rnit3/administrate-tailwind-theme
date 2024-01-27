@@ -21,8 +21,12 @@ By default, the relationship is rendered as a link to the associated object.
     <%= link_to(
       field.display_associated_resource,
       [namespace, field.data],
+      class: "text-blue-600 hover:text-blue-800 visited:text-purple-600"
     ) %>
   <% else %>
-    <%= field.display_associated_resource %>
+    <span class="text-gray-900">
+      <%= field.display_associated_resource %>
+    </span>
   <% end %>
 <% end %>
+

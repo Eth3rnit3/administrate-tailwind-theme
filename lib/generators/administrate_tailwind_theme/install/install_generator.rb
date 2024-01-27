@@ -23,7 +23,7 @@ module AdministrateTailwindTheme
                        after: "const defaultTheme = require('tailwindcss/defaultTheme')"
       insert_into_file file_path, "\nconst output = execSync('bundle show administrate-tailwind-theme', { encoding: 'utf-8' });",
                        after: "const execSync = require('child_process').execSync;"
-      insert_into_file file_path, "\n    output.trim() + '/lib/administrate/tailwind/theme/views/**/*.{erb,haml,html,rb}',",
+      insert_into_file file_path, "\n    output.trim() + '/app/views/**/*.{erb,haml,html,rb}',",
                        after: 'content: ['
     end
   end

@@ -6,10 +6,10 @@
   <div class="flex items-center border border-gray-300 rounded-md shadow-sm">
     <div class="pl-3">
       <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10H2a2 2 0 00-2 2v6a2 2 0 002 2h6m10-12h6a2 2 0 012 2v6a2 2 0 01-2 2h-6m-6 0H2a2 2 0 01-2-2v-6a2 2 0 012-2h6m10 0h6"/>
+        <path d="M16.9994165,16.2923098 L20.8535534,20.1464466 C21.0488155,20.3417088 21.0488155,20.6582912 20.8535534,20.8535534 C20.6582912,21.0488155 20.3417088,21.0488155 20.1464466,20.8535534 L16.2923098,16.9994165 C14.8819612,18.2444908 13.0292099,19 11,19 C6.581722,19 3,15.418278 3,11 C3,6.581722 6.581722,3 11,3 C15.418278,3 19,6.581722 19,11 C19,13.0292099 18.2444908,14.8819612 16.9994165,16.2923098 Z M11,18 C14.8659932,18 18,14.8659932 18,11 C18,7.13400675 14.8659932,4 11,4 C7.13400675,4 4,7.13400675 4,11 C4,14.8659932 7.13400675,18 11,18 Z"/>
       </svg>
     </div>
-    <input id="search" class="block w-full pl-10 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="<%= t("administrate.search.label", resource: resource_name) %>" type="search" name="search" value="<%= search_term %>">
+    <input id="search" class="block w-full pl-5 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="<%= t("administrate.search.label", resource: resource_name) %>" type="search" name="search" value="<%= search_term %>">
     <% if search_term.present? %>
       <%= link_to clear_search_params, class: "absolute inset-y-0 right-0 pr-3 flex items-center" do %>
         <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

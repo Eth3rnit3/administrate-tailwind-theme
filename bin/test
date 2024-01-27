@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.expand_path('../test', __dir__)
+ENV['RAILS_ENV'] = 'test'
+
+puts 'Preparing test database ...'
+`cd test/dummy; RAILS_ENV=test bundle exec rails db:prepare db:seed`
+
+require 'bundler/setup'
+require 'rails/plugin/test'

@@ -20,21 +20,20 @@ By default, it renders:
   <title><%= content_for(:title) || "Administrate" %> - <%= application_title %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+
   <%= stylesheet_link_tag 'tailwind', 'data-turbo-track': 'reload' %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag 'administrate-tailwind-theme', 'data-turbo-track': 'reload' %>
   <%= javascript_include_tag 'administrate-tailwind-theme', 'data-turbo-track': 'reload', defer: true %>
+  
 </head>
 <body class="bg-gray-100">
-  <div class="min-h-screen flex">
-    <%= render "navigation" %>
-    <!-- Main Content -->
-    <div class="flex-grow">
-      <%= render "flashes" %>
-      <main class="container mx-auto px-6 py-8">
-        <%= yield %>
-      </main>
-    </div>
+  <%= render "navigation" %>
+  <!-- Main Content -->
+  <div class="p-4 sm:ml-64">
+    <%= render "flashes" %>
+    <main class="container mx-auto px-6 py-8">
+      <%= yield %>
+    </main>
   </div>
   <%= render "javascript" %>
 </body>

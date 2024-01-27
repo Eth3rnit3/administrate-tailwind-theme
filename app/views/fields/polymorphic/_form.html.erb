@@ -16,14 +16,14 @@ This partial renders an input element for polymorphic relationships.
 %>
 
 <%= f.fields_for field.attribute do |pf| %>
-  <div class="field-unit__label">
-    <%= pf.label :value, field.name.humanize %>
-  </div>
-
-  <div class="field-unit__field">
-    <%= pf.hidden_field(:type, value: field.class.name) %>
-    <%= pf.select(:value) do %>
-      <%= grouped_options_for_select(field.associated_resource_grouped_options, field.selected_global_id, prompt: true) %>
-    <% end %>
+  <div class="mb-4">
+    <%= pf.label :value, field.name.humanize, class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= pf.hidden_field(:type, value: field.class.name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md") %>
+      <%= pf.select(:value, {}, {}, class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") do %>
+        <%= grouped_options_for_select(field.associated_resource_grouped_options, field.selected_global_id, prompt: true) %>
+      <% end %>
+    </div>
   </div>
 <% end %>
+

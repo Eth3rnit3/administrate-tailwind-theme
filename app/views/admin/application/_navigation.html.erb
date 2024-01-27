@@ -6,18 +6,34 @@ By default, the navigation contains navigation links
 for all resources in the admin dashboard,
 as defined by the routes in the `admin/` namespace
 %>
-
 <!-- Navigation Sidebar -->
-<nav class="bg-white shadow w-64 py-6 px-4">
-  <div class="mb-10">
-    <%= link_to(t("administrate.navigation.back_to_app"), root_path, class: "text-sm font-medium text-gray-700 hover:text-gray-900 mb-2 block") if defined?(root_path) %>
-    <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
-      <%= link_to(
-        display_resource_name(resource),
-        resource_index_route(resource),
-        class: "text-sm font-medium text-gray-700 hover:text-gray-900 mb-2 block #{'bg-gray-100' if nav_link_state(resource) == 'active'}"
-      ) if accessible_action?(model_from_resource(resource), :index) %>
-    <% end %>
+<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+  <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+    <ul class="space-y-2 font-medium">
+      <% if defined?(root_path) %>
+        <li>
+          <%= link_to(root_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group") do %>
+            <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+              <path d="M4 10L3.29289 10.7071L2.58579 10L3.29289 9.29289L4 10ZM21 18C21 18.5523 20.5523 19 20 19C19.4477 19 19 18.5523 19 18L21 18ZM8.29289 15.7071L3.29289 10.7071L4.70711 9.29289L9.70711 14.2929L8.29289 15.7071ZM3.29289 9.29289L8.29289 4.29289L9.70711 5.70711L4.70711 10.7071L3.29289 9.29289ZM4 9L14 9L14 11L4 11L4 9ZM21 16L21 18L19 18L19 16L21 16ZM14 9C17.866 9 21 12.134 21 16L19 16C19 13.2386 16.7614 11 14 11L14 9Z" fill="#33363F"/>
+            </svg>
+            <span class="ms-3">
+              <%= t("administrate.navigation.back_to_app") %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+      <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
+        <% if accessible_action?(model_from_resource(resource), :index) %>
+          <%= link_to(resource_index_route(resource), class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group #{'bg-gray-100' if nav_link_state(resource)&.to_sym == :active }") do %>
+            <% if icon?(resource) %>
+              <%= render partial: "administrate/navigation/icons/#{resource}" %>
+            <% end %>
+            <span class="ms-3">
+              <%= display_resource_name(resource) %>
+            </span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
-</nav>
-
+</aside>

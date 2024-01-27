@@ -1,14 +1,19 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Specify your gem's dependencies in administrate-tailwind-theme.gemspec.
 gemspec
 
-gem "puma"
+gem 'puma'
+gem 'sprockets-rails'
+gem 'sqlite3'
 
-gem "sqlite3"
+group :test do
+  gem 'administrate'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
 
-gem "sprockets-rails"
-
-# Start debugger with binding.b [https://github.com/ruby/debug]
-# gem "debug", ">= 1.0.0"
+group :test, :development do
+  gem 'byebug'
+end
