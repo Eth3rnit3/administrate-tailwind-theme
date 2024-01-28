@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_27_145116) do
     t.string "password"
     t.boolean "admin"
     t.integer "age"
+    t.string "country_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
