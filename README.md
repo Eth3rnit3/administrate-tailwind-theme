@@ -32,7 +32,7 @@
 3. After installing the gem, run the installer:
 
    ```
-   rails generate administrate:tailwind:install
+   rails generate administrate_tailwind_theme:install
    ```
 
    This will create an initializer and modify your `tailwind.config.js` to ensure proper compilation of the gem's view styles.
@@ -42,12 +42,50 @@
 Once installed, `administrate_tailwind_theme` automatically overrides the default Administrate views. Your dashboard will now use Tailwind CSS styles. You can further customize the styles as per your application's needs.
 
 ### Custom Fields
-- **Boolean Field:** Use it to display boolean values in a more intuitive way.
-- **Country Emoji Field:** Show country codes with their corresponding emoji flags for a visual representation.
+#### BooleanEmoji Field
+The `BooleanEmoji` field can be used to display boolean values with emojis for a more intuitive representation.
+
+Example usage in a dashboard resource file:
+```ruby
+ATTRIBUTE_TYPES = {
+  some_boolean_field: Field::BooleanEmoji,
+  # ...
+}.freeze
+```
+
+#### CountryEmoji Field
+The `CountryEmoji` field is designed to display country codes with their corresponding emoji flags for a visual representation. It utilizes the iso_country_codes gem.
+
+Example usage in a dashboard resource file:
+```ruby
+ATTRIBUTE_TYPES = {
+  country_code: Field::CountryEmoji, # iso2
+  # ...
+}.freeze
+```
+
+### Themed views
+Like [Administrate](https://github.com/thoughtbot/administrate) you can generate views to customize
+```shell
+./bin/rails g --help
+...
+AdministrateTailwindTheme:
+   administrate_tailwind_theme:install
+   administrate_tailwind_theme:view
+   administrate_tailwind_theme:views
+   administrate_tailwind_theme:views:edit
+   administrate_tailwind_theme:views:field
+   administrate_tailwind_theme:views:form
+   administrate_tailwind_theme:views:index
+   administrate_tailwind_theme:views:layout
+   administrate_tailwind_theme:views:navigation
+   administrate_tailwind_theme:views:new
+   administrate_tailwind_theme:views:show
+```
 
 ## Configuration
 
-After installation, you can modify the initializer created by the `administrate-tailwind:install` generator to fine-tune the theme settings.
+After installation, you can modify the initializer created by the `administrate_tailwind_theme:install` generator to fine-tune the theme settings.
 
 For modifying `tailwind.config.js`, we've followed the approach suggested in this [Stack Overflow comment](https://stackoverflow.com/a/74737193/8213274). Even though it might not be the most elegant solution, it's straightforward and works effectively.
 
