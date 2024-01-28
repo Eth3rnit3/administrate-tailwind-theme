@@ -1,7 +1,7 @@
 require 'iso_country_codes'
 require 'administrate/field/string'
 
-module Administrate
+module AdministrateTailwindTheme
   module Field
     class CountryEmoji < Administrate::Field::String
       def to_emoji

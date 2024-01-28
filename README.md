@@ -1,7 +1,7 @@
-# administrate-tailwind-theme Gem
+# administrate_tailwind_theme Gem
 
 ## Introduction
-`administrate-tailwind-theme` is a custom theme gem for the [Administrate](https://github.com/thoughtbot/administrate) gem, utilizing the [Tailwind CSS](https://tailwindcss.com/) framework. This gem revamps all views to use Tailwind CSS classes, enhancing the visual aesthetics and responsiveness of your Administrate dashboard. It also introduces additional fields like BooleanEmoji and CountryEmoji for a richer admin interface.
+`administrate_tailwind_theme` is a custom theme gem for the [Administrate](https://github.com/thoughtbot/administrate) gem, utilizing the [Tailwind CSS](https://tailwindcss.com/) framework. This gem revamps all views to use Tailwind CSS classes, enhancing the visual aesthetics and responsiveness of your Administrate dashboard. It also introduces additional fields like BooleanEmoji and CountryEmoji for a richer admin interface.
 
 ### Features
 - **Tailwind CSS Integration:** Complete rewrite of Administrate component classes to use Tailwind CSS.
@@ -20,7 +20,7 @@
 1. Add this line to your application's Gemfile:
 
    ```ruby
-   gem 'administrate-tailwind-theme'
+   gem 'administrate_tailwind_theme'
    ```
 
 2. Execute:
@@ -39,7 +39,7 @@
 
 ## Usage
 
-Once installed, `administrate-tailwind-theme` automatically overrides the default Administrate views. Your dashboard will now use Tailwind CSS styles. You can further customize the styles as per your application's needs.
+Once installed, `administrate_tailwind_theme` automatically overrides the default Administrate views. Your dashboard will now use Tailwind CSS styles. You can further customize the styles as per your application's needs.
 
 ### Custom Fields
 - **Boolean Field:** Use it to display boolean values in a more intuitive way.
@@ -55,7 +55,7 @@ Also, ensure your `tailwind.config.js` includes the styles from this gem for pro
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit pull requests or open issues on our [GitHub repository](https://github.com/eth3rnit3/administrate-tailwind-theme).
+Contributions are welcome! Please feel free to submit pull requests or open issues on our [GitHub repository](https://github.com/eth3rnit3/administrate_tailwind_theme).
 
 ## License
 

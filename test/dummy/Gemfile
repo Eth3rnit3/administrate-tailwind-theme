@@ -12,7 +12,7 @@ gem 'tailwindcss-rails', '~> 2.0'
 
 group :test, :development do
   gem 'administrate'
-  gem 'administrate-tailwind-theme', path: '../../'
+  gem 'administrate_tailwind_theme', path: '../../'
   gem 'byebug'
   gem 'iso_country_codes', '~> 0.7.8'
 end

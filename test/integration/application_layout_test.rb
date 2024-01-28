@@ -11,14 +11,14 @@ class ApplicationLayoutTest < ApplicationSystemTestCase
   test 'navigation sidebar uses Tailwind classes' do
     visit admin_root_path
 
-    assert_selector 'nav.bg-white.shadow.w-64.py-6.px-4', count: 1
+    assert_selector 'aside#default-sidebar', count: 1
   end
 
   test 'header uses Tailwind classes' do
     visit admin_root_path
 
     assert_selector 'header.bg-white.shadow', count: 1
-    assert_selector 'h1.text-3xl.font-bold.leading-tight.text-gray-900', text: 'Messages'
+    assert_selector 'h1.text-3xl.font-bold.leading-tight.text-gray-700.mb-2', text: 'Messages'
   end
 
   test 'search form uses Tailwind classes' do

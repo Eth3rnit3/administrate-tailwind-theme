@@ -1,9 +1,9 @@
-require 'administrate/tailwind/theme/view_generator'
+require 'administrate_tailwind_theme/view_generator'
 
 module AdministrateTailwindTheme
   module Generators
     module Views
-      class FieldGenerator < Administrate::Tailwind::Theme::ViewGenerator
+      class FieldGenerator < AdministrateTailwindTheme::ViewGenerator
         def self.template_source_path
           File.expand_path(
             '../../../../app/views/fields',

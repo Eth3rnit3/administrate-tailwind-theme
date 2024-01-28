@@ -6,6 +6,7 @@ module AdministrateTailwindTheme
 
     def create_initializer
       initializer 'administrate_tailwind_theme.rb', <<~FILE
+        require 'administrate'
         Administrate::Engine.stylesheets.clear # required to remove Administrate base styles
       FILE
     end
@@ -21,7 +22,7 @@ module AdministrateTailwindTheme
     def insert_tailwind_config(file_path)
       insert_into_file file_path, "\nconst execSync = require('child_process').execSync;",
                        after: "const defaultTheme = require('tailwindcss/defaultTheme')"
-      insert_into_file file_path, "\nconst output = execSync('bundle show administrate-tailwind-theme', { encoding: 'utf-8' });",
+      insert_into_file file_path, "\nconst output = execSync('bundle show administrate_tailwind_theme', { encoding: 'utf-8' });",
                        after: "const execSync = require('child_process').execSync;"
       insert_into_file file_path, "\n    output.trim() + '/app/views/**/*.{erb,haml,html,rb}',",
                        after: 'content: ['

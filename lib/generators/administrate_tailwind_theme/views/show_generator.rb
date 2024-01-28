@@ -1,9 +1,9 @@
-require 'administrate/tailwind/theme/view_generator'
+require 'administrate_tailwind_theme/view_generator'
 
 module AdministrateTailwindTheme
   module Generators
     module Views
-      class ShowGenerator < Administrate::Tailwind::Theme::ViewGenerator
+      class ShowGenerator < AdministrateTailwindTheme::ViewGenerator
         source_root template_source_path
 
         def copy_template

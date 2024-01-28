@@ -1,8 +1,8 @@
-require 'administrate/tailwind/theme/view_generator'
+require 'administrate_tailwind_theme/view_generator'
 
 module AdministrateTailwindTheme
   module Generators
-    class ViewsGenerator < Administrate::Tailwind::Theme::ViewGenerator
+    class ViewsGenerator < AdministrateTailwindTheme::ViewGenerator
       def copy_templates
         view = 'administrate_tailwind_theme:views:'
         call_generator("#{view}index", resource_path, '--namespace', namespace)

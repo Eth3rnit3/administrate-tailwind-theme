@@ -1,8 +1,8 @@
-require_relative 'lib/administrate/tailwind/theme/version'
+require_relative 'lib/administrate_tailwind_theme/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'administrate-tailwind-theme'
-  spec.version = Administrate::Tailwind::Theme::VERSION
+  spec.name = 'administrate_tailwind_theme'
+  spec.version = AdministrateTailwindTheme::VERSION
   spec.authors = ['Eth3rnit3']
   spec.email = ['eth3rnit3@gmail.com']
 

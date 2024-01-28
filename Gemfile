@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Specify your gem's dependencies in administrate-tailwind-theme.gemspec.
+# Specify your gem's dependencies in administrate_tailwind_theme.gemspec.
 gemspec
 
 gem 'puma'
