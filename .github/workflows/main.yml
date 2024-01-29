@@ -31,4 +31,4 @@ jobs:
       run: bundle exec rubocop
 
     - name: Run Tests
-      run: 
+      run: bin/test
