@@ -1,4 +1,6 @@
 # administrate_tailwind_theme Gem
+[![AdministrateTailwindTheme CI](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/main.yml/badge.svg)](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/main.yml)
+[![Publish on RubyGems](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/gem-push.yml/badge.svg)](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/gem-push.yml)
 
 ## Introduction
 `administrate_tailwind_theme` is a custom theme gem for the [Administrate](https://github.com/thoughtbot/administrate) gem, utilizing the [Tailwind CSS](https://tailwindcss.com/) framework. This gem revamps all views to use Tailwind CSS classes, enhancing the visual aesthetics and responsiveness of your Administrate dashboard. It also introduces additional fields like BooleanEmoji and CountryEmoji for a richer admin interface.
