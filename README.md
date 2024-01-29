@@ -70,6 +70,19 @@ AdministrateTailwindTheme:
 ./bin/rails g administrate_tailwind_theme:views:kaminari
 ```
 
+### Navigations
+#### Icons
+For customizing the navigation menu with icons, you can include SVG files for each resource. Here's an example for adding an icon for `User` model:
+
+```html
+<!-- app/views/administrate/navigation/icons/_users.html.erb -->
+<svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+  <!-- SVG path for user icon -->
+</svg>
+```
+
+Place this SVG file in the specified directory, and it will automatically be displayed next to the corresponding resource in the navigation menu.
+
 ### Custom Fields
 #### BooleanEmoji Field
 The `BooleanEmoji` field can be used to display boolean values with emojis for a more intuitive representation.
