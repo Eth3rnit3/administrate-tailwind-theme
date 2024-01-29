@@ -1,8 +1,11 @@
 name: Publish on RubyGems
 
 on:
-  release:
-      types: [published]
+  push:
+    branches:
+      - "*"
+
+  pull_request:
 
 jobs:
   build:
