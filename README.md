@@ -1,4 +1,5 @@
 # administrate_tailwind_theme Gem
+[![Gem Version](https://badge.fury.io/rb/administrate_tailwind_theme.svg)](https://badge.fury.io/rb/administrate_tailwind_theme)
 [![AdministrateTailwindTheme CI](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/main.yml/badge.svg)](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/main.yml)
 [![Publish on RubyGems](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/gem-push.yml/badge.svg)](https://github.com/Eth3rnit3/administrate-tailwind-theme/actions/workflows/gem-push.yml)
 

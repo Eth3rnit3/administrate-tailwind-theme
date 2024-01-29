@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    administrate_tailwind_theme (0.0.2)
+    administrate_tailwind_theme (0.0.3)
       administrate (~> 0.15)
       iso_country_codes (~> 0.7.8)
       rails (~> 7.1, >= 7.1.3)
