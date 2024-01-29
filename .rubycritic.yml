@@ -1,0 +1,5 @@
+minimum_score: 90
+paths:
+  - 'lib/'
+  - 'app/'
+no_browser: true
