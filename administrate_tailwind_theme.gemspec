@@ -12,7 +12,11 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
 
-  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  if ENV.fetch('GEM_PUSHER', 'default') == 'github'
+    spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/Eth3rnit3'
+  else
+    spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  end
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/eth3rnit3/administrate-tailwind-theme'
