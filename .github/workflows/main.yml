@@ -18,6 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -29,6 +30,13 @@ jobs:
 
     - name: Run Rubocop
       run: bundle exec rubocop
+
+    #   # uncomment for debug
+    # - name: Setup upterm session
+    #   uses: lhotari/action-upterm@v1
+    #   with:
+    #     limit-access-to-actor: true
+    #     limit-access-to-users: ${{ github.repository_owner }}
 
     - name: Run Tests
       run: bin/test
