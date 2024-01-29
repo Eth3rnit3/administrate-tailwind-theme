@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'administrate_tailwind_theme.gemspec'
+    - 'test/dummy/**/*.rb'
   NewCops: enable
   TargetRubyVersion: 3.0
 
