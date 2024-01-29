@@ -31,11 +31,12 @@ jobs:
     - name: Run Rubocop
       run: bundle exec rubocop
 
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
-      with:
-        limit-access-to-actor: true
-        limit-access-to-users: ${{ github.repository_owner }}
+    #   # uncomment for debug
+    # - name: Setup upterm session
+    #   uses: lhotari/action-upterm@v1
+    #   with:
+    #     limit-access-to-actor: true
+    #     limit-access-to-users: ${{ github.repository_owner }}
 
     - name: Run Tests
       run: bin/test
