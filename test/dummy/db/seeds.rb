@@ -19,7 +19,7 @@ country_codes = %w[fr us gb de it]
 
     10.times do |j|
       message.comments.create!(
-        content: "Content of comment Content of comment #{j + 1}.",
+        content: "Content of comment Content of comment Content of comment Content of comment Content of comment Content of comment Content of comment Content of comment Content of comment Content of comment #{j + 1}.",
         user: User.all.sample
       )
     end
