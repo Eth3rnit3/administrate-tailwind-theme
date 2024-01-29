@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
 
-  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/Eth3r'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/eth3rnit3/administrate-tailwind-theme'
@@ -28,6 +28,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'administrate', '~> 0.15'
   spec.add_dependency 'iso_country_codes', '~> 0.7.8'
-  spec.add_dependency 'rails', '>= 7.1.3'
+  spec.add_runtime_dependency 'rails', '~> 7.1', '>= 7.1.3'
   spec.add_dependency 'tailwindcss-rails', '~> 2.0'
 end
