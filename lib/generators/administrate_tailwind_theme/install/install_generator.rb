@@ -20,11 +20,15 @@ module AdministrateTailwindTheme
     private
 
     def insert_tailwind_config(file_path)
-      insert_into_file file_path, "\nconst execSync = require('child_process').execSync;",
+      js_import     = "\nconst execSync = require('child_process').execSync;"
+      child_process = "\nconst output = execSync('bundle show administrate_tailwind_theme', { encoding: 'utf-8' });"
+      config        = "\n    output.trim() + '/app/views/**/*.{erb,haml,html,rb}',"
+
+      insert_into_file file_path, js_import,
                        after: "const defaultTheme = require('tailwindcss/defaultTheme')"
-      insert_into_file file_path, "\nconst output = execSync('bundle show administrate_tailwind_theme', { encoding: 'utf-8' });",
+      insert_into_file file_path, child_process,
                        after: "const execSync = require('child_process').execSync;"
-      insert_into_file file_path, "\n    output.trim() + '/app/views/**/*.{erb,haml,html,rb}',",
+      insert_into_file file_path, config,
                        after: 'content: ['
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails/generators/base'
 require 'administrate/generator_helpers'
 require 'administrate/namespace'

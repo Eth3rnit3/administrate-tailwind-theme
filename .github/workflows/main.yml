@@ -1,0 +1,34 @@
+name: AdministrateTailwindTheme CI
+
+on:
+  push:
+    branches:
+      - "*"
+
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Run linter and test
+    strategy:
+      matrix:
+        ruby:
+          - '3.2.2'
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+
+    - name: Run Rubycritic
+      run: bundle exec rubycritic
+
+    - name: Run Rubocop
+      run: bundle exec rubocop
+
+    - name: Run Tests
+      run: bin/test
