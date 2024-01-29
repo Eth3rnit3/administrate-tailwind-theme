@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 User.destroy_all
 
 country_codes = %w[fr us gb de it]

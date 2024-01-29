@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AdministrateTailwindTheme
   module ViewHelper
     def flash_types(key)

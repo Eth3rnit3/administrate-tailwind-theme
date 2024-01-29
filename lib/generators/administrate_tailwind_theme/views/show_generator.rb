@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'administrate_tailwind_theme/view_generator'
 
 module AdministrateTailwindTheme

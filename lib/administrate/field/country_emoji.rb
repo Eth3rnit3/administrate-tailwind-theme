@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'iso_country_codes'
 require 'administrate/field/string'
 
