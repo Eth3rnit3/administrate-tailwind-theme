@@ -44,6 +44,32 @@
 
 Once installed, `administrate_tailwind_theme` automatically overrides the default Administrate views. Your dashboard will now use Tailwind CSS styles. You can further customize the styles as per your application's needs.
 
+### Themed views
+Like [Administrate](https://github.com/thoughtbot/administrate) you can generate views to customize
+```shell
+./bin/rails g --help
+...
+AdministrateTailwindTheme:
+   administrate_tailwind_theme:install
+   administrate_tailwind_theme:view
+   administrate_tailwind_theme:views
+   administrate_tailwind_theme:views:edit
+   administrate_tailwind_theme:views:field
+   administrate_tailwind_theme:views:form
+   administrate_tailwind_theme:views:index
+   administrate_tailwind_theme:views:layout
+   administrate_tailwind_theme:views:navigation
+   administrate_tailwind_theme:views:new
+   administrate_tailwind_theme:views:show
+```
+
+### Kaminari Themed pagination
+[Administrate](https://github.com/thoughtbot/administrate) use [kaminari](https://github.com/kaminari/kaminari) to handle pagination. Related views are themed with tailwind too
+
+```shell
+./bin/rails g administrate_tailwind_theme:views:kaminari
+```
+
 ### Custom Fields
 #### BooleanEmoji Field
 The `BooleanEmoji` field can be used to display boolean values with emojis for a more intuitive representation.
@@ -65,25 +91,6 @@ ATTRIBUTE_TYPES = {
   country_code: Field::CountryEmoji, # iso2
   # ...
 }.freeze
-```
-
-### Themed views
-Like [Administrate](https://github.com/thoughtbot/administrate) you can generate views to customize
-```shell
-./bin/rails g --help
-...
-AdministrateTailwindTheme:
-   administrate_tailwind_theme:install
-   administrate_tailwind_theme:view
-   administrate_tailwind_theme:views
-   administrate_tailwind_theme:views:edit
-   administrate_tailwind_theme:views:field
-   administrate_tailwind_theme:views:form
-   administrate_tailwind_theme:views:index
-   administrate_tailwind_theme:views:layout
-   administrate_tailwind_theme:views:navigation
-   administrate_tailwind_theme:views:new
-   administrate_tailwind_theme:views:show
 ```
 
 ## Configuration
