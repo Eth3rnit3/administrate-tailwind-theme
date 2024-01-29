@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -9,13 +9,14 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    admin: Field::Boolean,
+    admin: Field::BooleanEmoji,
     age: Field::Number,
     email: Field::String,
     messages: Field::HasMany,
     password: Field::String,
+    country_code: Field::CountryEmoji,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,6 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
     admin
     age
     email
+    country_code
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

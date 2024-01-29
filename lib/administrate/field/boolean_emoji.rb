@@ -1,6 +1,6 @@
 require 'administrate/field/base'
 
-module AdministrateTailwindTheme
+module Administrate
   module Field
     class BooleanEmoji < Administrate::Field::Base
       def to_emoji
