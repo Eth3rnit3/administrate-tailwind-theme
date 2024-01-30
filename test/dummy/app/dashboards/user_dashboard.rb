@@ -76,4 +76,8 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
+
+  def group
+    :configuration
+  end
 end
