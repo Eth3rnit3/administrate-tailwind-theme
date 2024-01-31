@@ -10,6 +10,8 @@ module AdministrateTailwindTheme
 
         def copy_navigation
           copy_resource_template('_navigation')
+          copy_resource_template('_default_sidebar')
+          copy_resource_template('_flowbite_sidebar')
         end
       end
     end

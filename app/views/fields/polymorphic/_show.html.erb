@@ -18,15 +18,17 @@ By default, the relationship is rendered as a link to the associated object.
 
 <% if field.data %>
   <% if accessible_action?(field.data, :show) %>
-    <%= link_to(
-      field.display_associated_resource,
-      [namespace, field.data],
-      class: "text-blue-600 hover:text-blue-800 visited:text-purple-600"
-    ) %>
+    <div class="bg-gray-50 p-3 rounded-md shadow-sm">
+      <%= link_to(
+        field.display_associated_resource,
+        [namespace, field.data],
+        class: "text-blue-600 hover:text-blue-800 visited:text-purple-600"
+      ) %>
+    </div>
   <% else %>
-    <span class="text-gray-900">
+    <div class="bg-gray-50 p-3 rounded-md shadow-sm">
       <%= field.display_associated_resource %>
-    </span>
+    </div>
   <% end %>
 <% end %>
 

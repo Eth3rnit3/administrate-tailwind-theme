@@ -12,6 +12,7 @@
 - **Additional Fields:** Adds BooleanEmoji and CountryEmoji fields to your Administrate dashboard.
 - **Easy Setup:** Automatic initializer creation and configuration.
 - **Rails 7, Rails-Tailwind, and Administrate Compatibility:** Seamlessly works with the latest versions of these key gems.
+- **Flowbite** Bringing a comprehensive suite of Tailwind CSS
 
 ## Installation
 ### Prerequisites
@@ -20,26 +21,33 @@
 - Administrate 0.15 or higher.
 - Tailwind CSS Rails 2.0 or higher.
 
+### Flowbite Integration
+administrate_tailwind_theme now comes with Flowbite integration by default, bringing a rich set of Tailwind CSS components to your Administrate dashboard. For those who prefer not to use Flowbite, it can be easily disabled during the installation of the gem by setting the `FLOWBITE=false` environment variable.
+
 ### Setup
 1. Add this line to your application's Gemfile:
 
-   ```ruby
-   gem 'administrate_tailwind_theme'
-   ```
+```ruby
+gem 'administrate_tailwind_theme'
+```
 
 2. Execute:
 
-   ```
-   bundle install
-   ```
+```
+bundle install
+```
 
 3. After installing the gem, run the installer:
 
-   ```
-   rails generate administrate_tailwind_theme:install
-   ```
+```shell
+# With flowbite integration (default since 0.0.4)
+rails generate administrate_tailwind_theme:install
 
-   This will create an initializer and modify your `tailwind.config.js` to ensure proper compilation of the gem's view styles.
+# Without flowbite integration
+FLOWBITE=false rails generate administrate_tailwind_theme:install
+```
+
+This will create an initializer and modify your `tailwind.config.js` to ensure proper compilation of the gem's view styles.
 
 ## Usage
 
