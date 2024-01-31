@@ -38,7 +38,7 @@ module AdministrateTailwindTheme
     end
 
     def group(resource)
-      dashboard(resource).try(:group) || :default
+      dashboard(resource).try(:group) || :main
     end
 
     def dashboard(resource)

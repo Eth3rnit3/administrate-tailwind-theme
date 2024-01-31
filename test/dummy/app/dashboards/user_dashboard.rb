@@ -78,6 +78,6 @@ class UserDashboard < Administrate::BaseDashboard
   # end
 
   def group
-    :configuration
+    :managment
   end
 end
