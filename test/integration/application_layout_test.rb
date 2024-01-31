@@ -13,7 +13,7 @@ class ApplicationLayoutTest < ApplicationSystemTestCase
   test 'navigation sidebar uses Tailwind classes' do
     visit admin_root_path
 
-    assert_selector 'aside#default-sidebar', count: 1
+    assert_selector 'aside#sidebar-multi-level-sidebar', count: 1
   end
 
   test 'header uses Tailwind classes' do
