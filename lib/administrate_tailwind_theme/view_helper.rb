@@ -19,6 +19,10 @@ module AdministrateTailwindTheme
       lookup_context.find_all("administrate/navigation/icons/_#{resource}").any?
     end
 
+    def flowbite?
+      AdministrateTailwindTheme::Configuration.flowbite
+    end
+
     def grouped_resources
       resources = Administrate::Namespace.new(namespace).resources_with_index_route.map do |resource|
         [group(resource), resource]
