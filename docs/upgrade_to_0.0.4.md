@@ -29,6 +29,10 @@ Modify your `tailwind.config.js` file to include the necessary configurations fo
 ```javascript
 module.exports = {
   // Existing configuration...
+  content: [
+    // Other content...
+    './node_modules/flowbite/**/*.js',
+  ],
   plugins: [
     // Other plugins...
     require('flowbite/plugin')
