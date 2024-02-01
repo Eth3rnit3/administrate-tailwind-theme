@@ -42,7 +42,7 @@ module AdministrateTailwindTheme
     end
 
     def dashboard(resource)
-      "#{resource.singularize.capitalize}Dashboard".constantize.new
+      "#{resource.classify}Dashboard".constantize.new
     rescue ::NameError
       nil
     end
