@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrate_tailwind_theme (0.0.5)
+    administrate_tailwind_theme (0.0.6)
       administrate (~> 0.15)
       iso_country_codes (~> 0.7.8)
       rails (~> 7.1, >= 7.1.3)
@@ -375,6 +375,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
+  arm64-darwin-24
   x86_64-darwin-21
   x86_64-linux
 

@@ -10,7 +10,7 @@ module AdministrateTailwindTheme
 
         def copy_template
           copy_file(
-            '../../../app/views/layouts/admin/application.html.erb',
+            '../../../../app/views/layouts/admin/application.html.erb',
             'app/views/layouts/admin/application.html.erb'
           )
 
